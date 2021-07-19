@@ -1,0 +1,34 @@
+{
+  "name": "projbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "express-validator": "^6.12.0",
+    "formidable": "^1.2.2",
+    "gridfs-stream": "^1.1.1",
+    "i": "^0.3.6",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.12.14",
+    "mongoose-auto-increment": "^5.0.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "multer-gridfs-storage": "^5.0.0",
+    "nodemon": "^2.0.12",
+    "razorpay": "^2.0.6",
+    "shortid": "^2.2.16",
+    "uuid": "^8.3.2"
+  }
+}
