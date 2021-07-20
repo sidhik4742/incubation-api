@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../models/user");
 const Plans = require("../models/plans");
+const Subscribers = require("../models/subscribers")
 const router = express.Router();
 const {
   getUserById,
@@ -19,11 +20,24 @@ const { isSignedIn, isAuthenticated } = require("../controller/auth");
 // assignment for us
 // router.get("/user", findAll);
 
+
+//get all plans route
 router.get("/user/getallplans", async (req, res) => {
   try {
-    console.log("this is all plans router");
+    let user = await User.findOne({ _id: req.query.id });
+    console.log(user);
     let allPlans = await Plans.find();
-    res.json(allPlans);
+    res.json({ allPlans, userEmail: user.email });
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
+//get all subscribers
+router.get("/user/getallsubscribers", async (req, res) => {
+  try {
+    let allSbscribers = await Subscribers.find();
+    res.json(allSbscribers);
   } catch (error) {
     res.json({ message: error.message });
   }
