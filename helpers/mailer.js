@@ -1,23 +1,32 @@
 var nodemailer = require("nodemailer");
 
+const senderId = "iqbaliqbalnoushad@gmail.com";
+const senderPass = "khush@123";
+
 module.exports.mailer = ({ email, amount, orderId, planName }) => {
   return new Promise((resolve, reject) => {
     try {
       var transporter = nodemailer.createTransport({
         //  service: 'gmail',
+        name: "smtp.gmail.com",
         host: "smtp.gmail.com",
         port: 587,
-        secure: false,
-        requireTLS: true,
+        secureConnection: false,
+        // requireTLS: true,
         auth: {
-          user: "sidhh1994@gmail.com",
-          pass: "qwerty@1247",
+          user: senderId,
+          pass: senderPass,
         },
+        tls: {
+          ciphers: "SSLv3",
+        },
+        logger: true,
+        debug: true,
       });
       var mailOptions = {
-        from: "sidhh1994@gmail.com",
+        from: senderId,
         to: email,
-        subject: "Thanks for your Feedback",
+        subject: "Thanks for your Payment",
         html: `<h2>S@R</h2><h5><strong>Welcome</strong>, 
                 Your payment has been succesfully completed with <strong>&#x20b9; ${amount}</strong> amount. Your order_id <strong>${orderId}</strong>
                 for <strong>${planName}</strong>.

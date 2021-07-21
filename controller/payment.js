@@ -27,7 +27,7 @@ exports.getPaymentDetails = async (req, res) => {
       const result = await Subscribers.create(paymentSlip);
       console.log(result, 23);
     }
-    const mailService = await mailer({
+    const mailService =   mailer({
       email: details.email,
       amount: choosePlan.amount,
       orderId: orderInitiated.id,
